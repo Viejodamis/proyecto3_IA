@@ -1,0 +1,5 @@
+Rain,value,prob
+True,True,0.01
+True,False,0.99
+False,True,0.4
+False,False,0.6

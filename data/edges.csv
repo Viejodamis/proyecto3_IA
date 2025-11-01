@@ -1,0 +1,4 @@
+parent,child
+Rain,Sprinkler
+Rain,GrassWet
+Sprinkler,GrassWet

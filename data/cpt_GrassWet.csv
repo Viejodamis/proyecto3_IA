@@ -1,0 +1,9 @@
+Rain,Sprinkler,value,prob
+True,True,True,0.99
+True,True,False,0.01
+True,False,True,0.9
+True,False,False,0.1
+False,True,True,0.9
+False,True,False,0.1
+False,False,True,0.0
+False,False,False,1.0

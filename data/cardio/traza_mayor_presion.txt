@@ -1,0 +1,531 @@
+
+Calculando P(DiagnosticoCardio|{'Edad': 'mayor', 'PresionAlta': 'si'})
+Variables en orden topológico: ['Edad', 'Obesidad', 'Sedentarismo', 'DolorPecho', 'PresionAlta', 'Fatiga', 'DiagnosticoCardio']
+
+Calculando P(DiagnosticoCardio=no, e)
+
+Enumerando sobre Edad
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no'}
+  Edad en evidencia, P(Edad=mayor|padres)=0.2000
+
+Enumerando sobre Obesidad
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no'}
+  Sumando sobre valores de Obesidad: {'no', 'si'}
+    P(Obesidad=no|padres)=0.6000
+
+Enumerando sobre Sedentarismo
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no'}
+  Sumando sobre valores de Sedentarismo: {'no', 'si'}
+    P(Sedentarismo=no|padres)=0.3000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.3000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.9000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.5500
+  Retornando 0.5500
+    Término para Fatiga=no: 0.4950
+    P(Fatiga=si|padres)=0.1000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.3500
+  Retornando 0.3500
+    Término para Fatiga=si: 0.0350
+  Suma para Fatiga: 0.5300
+  Retornando 0.1590
+    Término para DolorPecho=no: 0.1113
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.3000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.9000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.2000
+  Retornando 0.2000
+    Término para Fatiga=no: 0.1800
+    P(Fatiga=si|padres)=0.1000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.1000
+  Retornando 0.1000
+    Término para Fatiga=si: 0.0100
+  Suma para Fatiga: 0.1900
+  Retornando 0.0570
+    Término para DolorPecho=si: 0.0171
+  Suma para DolorPecho: 0.1284
+    Término para Sedentarismo=no: 0.0385
+    P(Sedentarismo=si|padres)=0.7000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.4500
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.5500
+  Retornando 0.5500
+    Término para Fatiga=no: 0.3850
+    P(Fatiga=si|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.3500
+  Retornando 0.3500
+    Término para Fatiga=si: 0.1050
+  Suma para Fatiga: 0.4900
+  Retornando 0.2205
+    Término para DolorPecho=no: 0.1543
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.4500
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.2000
+  Retornando 0.2000
+    Término para Fatiga=no: 0.1400
+    P(Fatiga=si|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.1000
+  Retornando 0.1000
+    Término para Fatiga=si: 0.0300
+  Suma para Fatiga: 0.1700
+  Retornando 0.0765
+    Término para DolorPecho=si: 0.0229
+  Suma para DolorPecho: 0.1773
+    Término para Sedentarismo=si: 0.1241
+  Suma para Sedentarismo: 0.1626
+    Término para Obesidad=no: 0.0976
+    P(Obesidad=si|padres)=0.4000
+
+Enumerando sobre Sedentarismo
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si'}
+  Sumando sobre valores de Sedentarismo: {'no', 'si'}
+    P(Sedentarismo=no|padres)=0.3000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.6000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.6000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.5500
+  Retornando 0.5500
+    Término para Fatiga=no: 0.3300
+    P(Fatiga=si|padres)=0.4000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.3500
+  Retornando 0.3500
+    Término para Fatiga=si: 0.1400
+  Suma para Fatiga: 0.4700
+  Retornando 0.2820
+    Término para DolorPecho=no: 0.1974
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.6000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.6000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.2000
+  Retornando 0.2000
+    Término para Fatiga=no: 0.1200
+    P(Fatiga=si|padres)=0.4000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.1000
+  Retornando 0.1000
+    Término para Fatiga=si: 0.0400
+  Suma para Fatiga: 0.1600
+  Retornando 0.0960
+    Término para DolorPecho=si: 0.0288
+  Suma para DolorPecho: 0.2262
+    Término para Sedentarismo=no: 0.0679
+    P(Sedentarismo=si|padres)=0.7000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.8000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.5500
+  Retornando 0.5500
+    Término para Fatiga=no: 0.1650
+    P(Fatiga=si|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.3500
+  Retornando 0.3500
+    Término para Fatiga=si: 0.2450
+  Suma para Fatiga: 0.4100
+  Retornando 0.3280
+    Término para DolorPecho=no: 0.2296
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.8000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.2000
+  Retornando 0.2000
+    Término para Fatiga=no: 0.0600
+    P(Fatiga=si|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'no', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=no|padres)=0.1000
+  Retornando 0.1000
+    Término para Fatiga=si: 0.0700
+  Suma para Fatiga: 0.1300
+  Retornando 0.1040
+    Término para DolorPecho=si: 0.0312
+  Suma para DolorPecho: 0.2608
+    Término para Sedentarismo=si: 0.1826
+  Suma para Sedentarismo: 0.2504
+    Término para Obesidad=si: 0.1002
+  Suma para Obesidad: 0.1977
+  Retornando 0.0395
+P(DiagnosticoCardio=no, e) = 0.0395
+
+Calculando P(DiagnosticoCardio=si, e)
+
+Enumerando sobre Edad
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si'}
+  Edad en evidencia, P(Edad=mayor|padres)=0.2000
+
+Enumerando sobre Obesidad
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si'}
+  Sumando sobre valores de Obesidad: {'no', 'si'}
+    P(Obesidad=no|padres)=0.6000
+
+Enumerando sobre Sedentarismo
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no'}
+  Sumando sobre valores de Sedentarismo: {'no', 'si'}
+    P(Sedentarismo=no|padres)=0.3000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.3000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.9000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.4500
+  Retornando 0.4500
+    Término para Fatiga=no: 0.4050
+    P(Fatiga=si|padres)=0.1000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.6500
+  Retornando 0.6500
+    Término para Fatiga=si: 0.0650
+  Suma para Fatiga: 0.4700
+  Retornando 0.1410
+    Término para DolorPecho=no: 0.0987
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.3000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.9000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.8000
+  Retornando 0.8000
+    Término para Fatiga=no: 0.7200
+    P(Fatiga=si|padres)=0.1000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.9000
+  Retornando 0.9000
+    Término para Fatiga=si: 0.0900
+  Suma para Fatiga: 0.8100
+  Retornando 0.2430
+    Término para DolorPecho=si: 0.0729
+  Suma para DolorPecho: 0.1716
+    Término para Sedentarismo=no: 0.0515
+    P(Sedentarismo=si|padres)=0.7000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.4500
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.4500
+  Retornando 0.4500
+    Término para Fatiga=no: 0.3150
+    P(Fatiga=si|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.6500
+  Retornando 0.6500
+    Término para Fatiga=si: 0.1950
+  Suma para Fatiga: 0.5100
+  Retornando 0.2295
+    Término para DolorPecho=no: 0.1606
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.4500
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.8000
+  Retornando 0.8000
+    Término para Fatiga=no: 0.5600
+    P(Fatiga=si|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'no', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.9000
+  Retornando 0.9000
+    Término para Fatiga=si: 0.2700
+  Suma para Fatiga: 0.8300
+  Retornando 0.3735
+    Término para DolorPecho=si: 0.1120
+  Suma para DolorPecho: 0.2727
+    Término para Sedentarismo=si: 0.1909
+  Suma para Sedentarismo: 0.2424
+    Término para Obesidad=no: 0.1454
+    P(Obesidad=si|padres)=0.4000
+
+Enumerando sobre Sedentarismo
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si'}
+  Sumando sobre valores de Sedentarismo: {'no', 'si'}
+    P(Sedentarismo=no|padres)=0.3000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.6000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.6000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.4500
+  Retornando 0.4500
+    Término para Fatiga=no: 0.2700
+    P(Fatiga=si|padres)=0.4000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.6500
+  Retornando 0.6500
+    Término para Fatiga=si: 0.2600
+  Suma para Fatiga: 0.5300
+  Retornando 0.3180
+    Término para DolorPecho=no: 0.2226
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.6000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.6000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.8000
+  Retornando 0.8000
+    Término para Fatiga=no: 0.4800
+    P(Fatiga=si|padres)=0.4000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'no', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.9000
+  Retornando 0.9000
+    Término para Fatiga=si: 0.3600
+  Suma para Fatiga: 0.8400
+  Retornando 0.5040
+    Término para DolorPecho=si: 0.1512
+  Suma para DolorPecho: 0.3738
+    Término para Sedentarismo=no: 0.1121
+    P(Sedentarismo=si|padres)=0.7000
+
+Enumerando sobre DolorPecho
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si'}
+  Sumando sobre valores de DolorPecho: {'no', 'si'}
+    P(DolorPecho=no|padres)=0.7000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.8000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.4500
+  Retornando 0.4500
+    Término para Fatiga=no: 0.1350
+    P(Fatiga=si|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'no', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.6500
+  Retornando 0.6500
+    Término para Fatiga=si: 0.4550
+  Suma para Fatiga: 0.5900
+  Retornando 0.4720
+    Término para DolorPecho=no: 0.3304
+    P(DolorPecho=si|padres)=0.3000
+
+Enumerando sobre PresionAlta
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  PresionAlta en evidencia, P(PresionAlta=si|padres)=0.8000
+
+Enumerando sobre Fatiga
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si'}
+  Sumando sobre valores de Fatiga: {'no', 'si'}
+    P(Fatiga=no|padres)=0.3000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'no'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.8000
+  Retornando 0.8000
+    Término para Fatiga=no: 0.2400
+    P(Fatiga=si|padres)=0.7000
+
+Enumerando sobre DiagnosticoCardio
+  Evidencia actual: {'Edad': 'mayor', 'PresionAlta': 'si', 'DiagnosticoCardio': 'si', 'Obesidad': 'si', 'Sedentarismo': 'si', 'DolorPecho': 'si', 'Fatiga': 'si'}
+  DiagnosticoCardio en evidencia, P(DiagnosticoCardio=si|padres)=0.9000
+  Retornando 0.9000
+    Término para Fatiga=si: 0.6300
+  Suma para Fatiga: 0.8700
+  Retornando 0.6960
+    Término para DolorPecho=si: 0.2088
+  Suma para DolorPecho: 0.5392
+    Término para Sedentarismo=si: 0.3774
+  Suma para Sedentarismo: 0.4896
+    Término para Obesidad=si: 0.1958
+  Suma para Obesidad: 0.3413
+  Retornando 0.0683
+P(DiagnosticoCardio=si, e) = 0.0683
+P(DiagnosticoCardio=no|e) = 0.3669
+P(DiagnosticoCardio=si|e) = 0.6331

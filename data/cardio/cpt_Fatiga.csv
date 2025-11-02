@@ -1,0 +1,9 @@
+Obesidad,Sedentarismo,value,prob
+no,no,si,0.10
+no,no,no,0.90
+no,si,si,0.30
+no,si,no,0.70
+si,no,si,0.40
+si,no,no,0.60
+si,si,si,0.70
+si,si,no,0.30

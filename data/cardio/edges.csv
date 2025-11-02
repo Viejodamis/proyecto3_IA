@@ -1,0 +1,10 @@
+parent,child
+Edad,PresionAlta
+Obesidad,PresionAlta
+Sedentarismo,PresionAlta
+Edad,DiagnosticoCardio
+PresionAlta,DiagnosticoCardio
+DolorPecho,DiagnosticoCardio
+Fatiga,DiagnosticoCardio
+Obesidad,Fatiga
+Sedentarismo,Fatiga

@@ -1,0 +1,41 @@
+
+Calculando P(Sprinkler|{'GrassWet': True, 'Rain': False})
+Variables en orden topológico: ['Rain', 'Sprinkler', 'GrassWet']
+
+Calculando P(Sprinkler=False, e)
+
+Enumerando sobre Rain
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': False}
+  Rain en evidencia, P(Rain=False|padres)=0.8000
+
+Enumerando sobre Sprinkler
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': False}
+  Sprinkler en evidencia, P(Sprinkler=False|padres)=0.6000
+
+Enumerando sobre GrassWet
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': False}
+  GrassWet en evidencia, P(GrassWet=True|padres)=0.0000
+  Retornando 0.0000
+  Retornando 0.0000
+  Retornando 0.0000
+P(Sprinkler=False, e) = 0.0000
+
+Calculando P(Sprinkler=True, e)
+
+Enumerando sobre Rain
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': True}
+  Rain en evidencia, P(Rain=False|padres)=0.8000
+
+Enumerando sobre Sprinkler
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': True}
+  Sprinkler en evidencia, P(Sprinkler=True|padres)=0.4000
+
+Enumerando sobre GrassWet
+  Evidencia actual: {'GrassWet': True, 'Rain': False, 'Sprinkler': True}
+  GrassWet en evidencia, P(GrassWet=True|padres)=0.9000
+  Retornando 0.9000
+  Retornando 0.3600
+  Retornando 0.2880
+P(Sprinkler=True, e) = 0.2880
+P(Sprinkler=False|e) = 0.0000
+P(Sprinkler=True|e) = 1.0000

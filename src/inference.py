@@ -1,7 +1,7 @@
-"""Inference by enumeration in Bayesian networks with detailed tracing.
+"""Inferencia por enumeración en redes bayesianas con trazado detallado.
 
-This module implements the enumeration algorithm for exact inference in discrete
-Bayesian networks, with detailed tracing of the computation process.
+Este módulo implementa el algoritmo de enumeración para inferencia exacta en
+redes bayesianas discretas, con un registro detallado del proceso de cómputo.
 """
 import itertools
 from collections import defaultdict
@@ -10,142 +10,142 @@ import pandas as pd
 import networkx as nx
 
 
-class InferenceTracer:
-    """Track and log inference computation steps."""
-    def __init__(self, log_file=None):
-        self.steps = []
-        self.log_file = Path(log_file) if log_file else None
-        if self.log_file:
-            # Start fresh log
-            self.log_file.write_text('')
+class RastreadorInferencia:
+    """Rastrea y registra los pasos de cómputo de la inferencia."""
+    def __init__(self, archivo_log=None):
+        self.pasos = []
+        self.archivo_log = Path(archivo_log) if archivo_log else None
+        if self.archivo_log:
+            # Iniciar log nuevo
+            self.archivo_log.write_text('')
     
-    def add_step(self, msg):
-        """Add a computation step and optionally write to log file."""
-        print(msg)  # Always print to console
-        self.steps.append(msg)
-        if self.log_file:
-            with open(self.log_file, 'a', encoding='utf-8') as f:
+    def agregar_paso(self, msg):
+        """Agrega un paso de cómputo y opcionalmente lo escribe al archivo."""
+        print(msg)  # Siempre imprimir a consola
+        self.pasos.append(msg)
+        if self.archivo_log:
+            with open(self.archivo_log, 'a', encoding='utf-8') as f:
                 f.write(msg + '\n')
 
 
-def enumerate_all(variables, evidence, G, bn_vars, tracer):
-    """Return distribution over query variable by enumeration.
+def enumerar_todo(variables, evidencia, G, vars_red, rastreador):
+    """Retorna la distribución sobre la variable de consulta por enumeración.
     
     Args:
-        variables: List[str], variables to enumerate over (in topological order)
-        evidence: dict, variable -> value assignments
-        G: networkx.DiGraph with CPTs stored in node attributes
-        bn_vars: dict mapping each variable to its possible values
-        tracer: InferenceTracer to log computation steps
+        variables: List[str], variables a enumerar (en orden topológico)
+        evidencia: dict, variable -> asignación de valores
+        G: networkx.DiGraph con CPTs almacenadas en atributos de nodos
+        vars_red: dict que mapea cada variable a sus valores posibles
+        rastreador: RastreadorInferencia para registrar pasos
     
     Returns:
-        float: probability of evidence
+        float: probabilidad de la evidencia
     """
     if not variables:
         return 1.0
     
-    Y, rest = variables[0], variables[1:]
-    tracer.add_step(f"\nEnumerating over {Y}")
-    tracer.add_step(f"  Current evidence: {evidence}")
+    Y, resto = variables[0], variables[1:]
+    rastreador.agregar_paso(f"\nEnumerando sobre {Y}")
+    rastreador.agregar_paso(f"  Evidencia actual: {evidencia}")
     
-    if Y in evidence:
-        # Variable already has value in evidence
-        py = probability(Y, evidence, G)
-        tracer.add_step(f"  {Y} in evidence, P({Y}={evidence[Y]}|parents)={py:.4f}")
-        result = py * enumerate_all(rest, evidence, G, bn_vars, tracer)
-        tracer.add_step(f"  Returning {result:.4f}")
-        return result
+    if Y in evidencia:
+        # Variable ya tiene valor en evidencia
+        py = obtener_probabilidad(Y, evidencia, G)
+        rastreador.agregar_paso(f"  {Y} en evidencia, P({Y}={evidencia[Y]}|padres)={py:.4f}")
+        resultado = py * enumerar_todo(resto, evidencia, G, vars_red, rastreador)
+        rastreador.agregar_paso(f"  Retornando {resultado:.4f}")
+        return resultado
     
-    # Sum over possible values of Y
+    # Sumar sobre valores posibles de Y
     total = 0
-    tracer.add_step(f"  Summing over values of {Y}: {bn_vars[Y]}")
-    for y in bn_vars[Y]:
-        evidence[Y] = y
-        py = probability(Y, evidence, G)
-        tracer.add_step(f"    P({Y}={y}|parents)={py:.4f}")
-        sub = py * enumerate_all(rest, evidence, G, bn_vars, tracer)
-        tracer.add_step(f"    Term for {Y}={y}: {sub:.4f}")
+    rastreador.agregar_paso(f"  Sumando sobre valores de {Y}: {vars_red[Y]}")
+    for y in vars_red[Y]:
+        evidencia[Y] = y
+        py = obtener_probabilidad(Y, evidencia, G)
+        rastreador.agregar_paso(f"    P({Y}={y}|padres)={py:.4f}")
+        sub = py * enumerar_todo(resto, evidencia, G, vars_red, rastreador)
+        rastreador.agregar_paso(f"    Término para {Y}={y}: {sub:.4f}")
         total += sub
-    evidence.pop(Y)  # Remove from evidence before returning
-    tracer.add_step(f"  Sum for {Y}: {total:.4f}")
+    evidencia.pop(Y)  # Eliminar de evidencia antes de retornar
+    rastreador.agregar_paso(f"  Suma para {Y}: {total:.4f}")
     return total
 
 
-def probability(var, evidence, G):
-    """Return probability of var=val given parents values in evidence.
+def obtener_probabilidad(var, evidencia, G):
+    """Retorna la probabilidad de var=val dados los valores de los padres en evidencia.
     
-    The CPT for each node should be stored in G.nodes[var]['cpt'] as a pandas DataFrame
-    with columns for parent values (if any) and 'value', 'prob'.
+    La CPT de cada nodo debe estar almacenada en G.nodes[var]['cpt'] como DataFrame
+    con columnas para valores de padres (si hay) y 'value', 'prob'.
     """
     cpt = G.nodes[var]['cpt']
-    # Get parents and their values from evidence
-    parents = list(G.predecessors(var))
-    if not parents:
-        # No parents - just look up probability
-        return float(cpt[cpt['value'] == evidence[var]]['prob'].iloc[0])
+    # Obtener padres y sus valores de evidencia
+    padres = list(G.predecessors(var))
+    if not padres:
+        # Sin padres - solo buscar probabilidad
+        return float(cpt[cpt['value'] == evidencia[var]]['prob'].iloc[0])
     
-    # Match parent values in CPT
-    query = {p: evidence[p] for p in parents}
-    query['value'] = evidence[var]
-    # Use pandas boolean indexing to find matching row
-    matches = cpt
-    for col, val in query.items():
-        matches = matches[matches[col] == val]
-    return float(matches['prob'].iloc[0])
+    # Buscar valores de padres en CPT
+    consulta = {p: evidencia[p] for p in padres}
+    consulta['value'] = evidencia[var]
+    # Usar indexación booleana de pandas para encontrar fila
+    coincidencias = cpt
+    for col, val in consulta.items():
+        coincidencias = coincidencias[coincidencias[col] == val]
+    return float(coincidencias['prob'].iloc[0])
 
 
-def enumeration_ask(X, evidence, G, bn_vars=None, log_file=None):
-    """Return distribution over X by enumeration given evidence.
+def consulta_enumeracion(X, evidencia, G, vars_red=None, archivo_log=None):
+    """Retorna distribución sobre X por enumeración dada la evidencia.
     
     Args:
-        X: str, query variable
-        evidence: dict mapping variables to values
-        G: networkx.DiGraph with CPTs stored in node attributes
-        bn_vars: optional dict mapping variables to their possible values
-               (defaults to {True, False} for all variables)
-        log_file: optional path to write computation trace
+        X: str, variable de consulta
+        evidencia: dict con mapeo de variables a valores
+        G: networkx.DiGraph con CPTs almacenadas en atributos de nodos
+        vars_red: dict opcional que mapea variables a sus valores posibles
+                (por defecto {True, False} para todas las variables)
+        archivo_log: ruta opcional para escribir traza de cómputo
     
     Returns:
-        Distribution over X as dict mapping values to probabilities
+        Distribución sobre X como dict que mapea valores a probabilidades
     """
-    if bn_vars is None:
-        # Default to binary variables
-        bn_vars = {var: {True, False} for var in G.nodes}
+    if vars_red is None:
+        # Por defecto variables binarias
+        vars_red = {var: {True, False} for var in G.nodes}
     
-    tracer = InferenceTracer(log_file)
-    tracer.add_step(f"\nComputing P({X}|{evidence})")
+    rastreador = RastreadorInferencia(archivo_log)
+    rastreador.agregar_paso(f"\nCalculando P({X}|{evidencia})")
     
-    # Get all variables in topological order (ensures correct enumeration order)
+    # Obtener variables en orden topológico (asegura orden correcto de enumeración)
     variables = list(nx.topological_sort(G))
-    tracer.add_step(f"Variables in topological order: {variables}")
+    rastreador.agregar_paso(f"Variables en orden topológico: {variables}")
     
-    # Compute distribution by normalizing across query variable values
+    # Calcular distribución normalizando sobre valores de variable de consulta
     Q = defaultdict(float)
-    for x in bn_vars[X]:
-        evidence[X] = x
-        tracer.add_step(f"\nComputing P({X}={x}, e)")
-        Q[x] = enumerate_all(variables, evidence, G, bn_vars, tracer)
-        tracer.add_step(f"P({X}={x}, e) = {Q[x]:.4f}")
-    evidence.pop(X)
+    for x in vars_red[X]:
+        evidencia[X] = x
+        rastreador.agregar_paso(f"\nCalculando P({X}={x}, e)")
+        Q[x] = enumerar_todo(variables, evidencia, G, vars_red, rastreador)
+        rastreador.agregar_paso(f"P({X}={x}, e) = {Q[x]:.4f}")
+    evidencia.pop(X)
     
-    # Normalize
+    # Normalizar
     total = sum(Q.values())
     for x in Q:
         Q[x] /= total
-        tracer.add_step(f"P({X}={x}|e) = {Q[x]:.4f}")
+        rastreador.agregar_paso(f"P({X}={x}|e) = {Q[x]:.4f}")
     
-    return dict(Q)  # Convert defaultdict to regular dict
+    return dict(Q)  # Convertir defaultdict a dict normal
 
 
 if __name__ == '__main__':
-    # Small test/demo
+    # Pequeña prueba/demo
     from bayesnet import build_bayesnet
     
-    edges = Path(__file__).resolve().parents[1] / 'data' / 'edges.csv'
-    cpt_folder = edges.parent
-    G = build_bayesnet(edges, cpt_folder)
+    ruta_aristas = Path(__file__).resolve().parents[1] / 'data' / 'edges.csv'
+    carpeta_cpt = ruta_aristas.parent
+    G = build_bayesnet(ruta_aristas, carpeta_cpt)
     
-    # P(Rain | GrassWet=true)
-    evidence = {'GrassWet': True}
-    dist = enumeration_ask('Rain', evidence, G, log_file='trace.txt')
-    print(f"\nP(Rain|GrassWet=true) = {dist}")
+    # P(Lluvia | CespedMojado=true)
+    evidencia = {'GrassWet': True}
+    dist = consulta_enumeracion('Rain', evidencia, G, archivo_log='traza.txt')
+    print(f"\nP(Lluvia|CespedMojado=true) = {dist}")

@@ -1,0 +1,69 @@
+
+Calculando P(Appointment|{'Rain': 'light', 'Maintenance': 'no'})
+Variables en orden topológico: ['Rain', 'Maintenance', 'Train', 'Appointment']
+
+Calculando P(Appointment=yes, e)
+
+Enumerando sobre Rain
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'yes'}
+  Rain en evidencia, P(Rain=light|padres)=0.2000
+
+Enumerando sobre Maintenance
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'yes'}
+  Maintenance en evidencia, P(Maintenance=no|padres)=0.8000
+
+Enumerando sobre Train
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'yes'}
+  Sumando sobre valores de Train: {'on_time', 'delayed'}
+    P(Train=on_time|padres)=0.8000
+
+Enumerando sobre Appointment
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'yes', 'Train': 'on_time'}
+  Appointment en evidencia, P(Appointment=yes|padres)=0.9500
+  Retornando 0.9500
+    Término para Train=on_time: 0.7600
+    P(Train=delayed|padres)=0.2000
+
+Enumerando sobre Appointment
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'yes', 'Train': 'delayed'}
+  Appointment en evidencia, P(Appointment=yes|padres)=0.4000
+  Retornando 0.4000
+    Término para Train=delayed: 0.0800
+  Suma para Train: 0.8400
+  Retornando 0.6720
+  Retornando 0.1344
+P(Appointment=yes, e) = 0.1344
+
+Calculando P(Appointment=no, e)
+
+Enumerando sobre Rain
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'no'}
+  Rain en evidencia, P(Rain=light|padres)=0.2000
+
+Enumerando sobre Maintenance
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'no'}
+  Maintenance en evidencia, P(Maintenance=no|padres)=0.8000
+
+Enumerando sobre Train
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'no'}
+  Sumando sobre valores de Train: {'on_time', 'delayed'}
+    P(Train=on_time|padres)=0.8000
+
+Enumerando sobre Appointment
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'no', 'Train': 'on_time'}
+  Appointment en evidencia, P(Appointment=no|padres)=0.0500
+  Retornando 0.0500
+    Término para Train=on_time: 0.0400
+    P(Train=delayed|padres)=0.2000
+
+Enumerando sobre Appointment
+  Evidencia actual: {'Rain': 'light', 'Maintenance': 'no', 'Appointment': 'no', 'Train': 'delayed'}
+  Appointment en evidencia, P(Appointment=no|padres)=0.6000
+  Retornando 0.6000
+    Término para Train=delayed: 0.1200
+  Suma para Train: 0.1600
+  Retornando 0.1280
+  Retornando 0.0256
+P(Appointment=no, e) = 0.0256
+P(Appointment=yes|e) = 0.8400
+P(Appointment=no|e) = 0.1600

@@ -1,0 +1,13 @@
+Rain,Maintenance,value,prob
+none,no,on_time,0.95
+none,no,delayed,0.05
+none,yes,on_time,0.5
+none,yes,delayed,0.5
+light,no,on_time,0.8
+light,no,delayed,0.2
+light,yes,on_time,0.4
+light,yes,delayed,0.6
+heavy,no,on_time,0.6
+heavy,no,delayed,0.4
+heavy,yes,on_time,0.2
+heavy,yes,delayed,0.8

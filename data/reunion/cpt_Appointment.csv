@@ -1,0 +1,5 @@
+Train,value,prob
+on_time,yes,0.95
+on_time,no,0.05
+delayed,yes,0.4
+delayed,no,0.6
